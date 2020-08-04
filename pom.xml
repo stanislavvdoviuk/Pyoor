@@ -10,12 +10,16 @@
     <properties>
         <!-- - - - - - Test - - - - - -->
         <org.testng.version>6.14.3</org.testng.version>
+        <application.testng.name>testng.xml</application.testng.name>
         <!-- - - - - - Automation - - - - - -->
         <org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
         <org.seleniumhq.selenium.htmlunit-driver>2.36.0</org.seleniumhq.selenium.htmlunit-driver>
         <com.codeborne.phantomjsdriver.version>1.4.4</com.codeborne.phantomjsdriver.version>
         <maven.os-maven-plugin.version>1.6.2</maven.os-maven-plugin.version>
         <maven.webdriverextensions-maven-plugin.version>3.2.0</maven.webdriverextensions-maven-plugin.version>
+        <aspectj.version>1.9.5</aspectj.version>
+        <maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
     </properties>
 
     <dependencies>
@@ -37,6 +41,12 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+            <!-- <scope>test</scope> -->
         </dependency>
     </dependencies>
     <build>
@@ -78,6 +88,36 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <argLine>-Xms512m -Xmx1024m</argLine>
+                    <skipTests>false</skipTests>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${application.testng.name}</suiteXmlFile>
+                    </suiteXmlFiles>
+
+                    <reportsDirectory>${testng.reports.directory}</reportsDirectory>
+
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+
+                        <version>${aspectj.version}</version>
+                        <scope>compile</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
         </plugins>
     </build>
 </project>
