@@ -25,6 +25,18 @@ public class Tools extends TestRunner{
         RegistrationModal login=new RegistrationModal(getDriver());
         login.setUser(email,password);
     }
+    public void setServiceOption(List<WebElement> block, String option)
+    {
+        for(int i=0;i<block.size();i++)
+        {
+//            String value=block.get(i).getText();
+//            if(value.contentEquals(option))
+//            {block.get(i).click();}
+        if(option.contains(block.get(i).getText())){
+            block.get(i).click();
+        }
+        }
+    }
     public void setDatePickerDate(LocalDate date) throws InterruptedException, ParseException {
         SimpleDateFormat currentMonthAndYearPattern = new SimpleDateFormat("MMMM yyyy", Locale.US);
         //button to open calendar

@@ -14,7 +14,6 @@ public class BasicHairBookPage extends TopPart {
     protected WebDriver driver;
     private By numberOfPeoples;
     private By numberOfPeoplesDropdown;
-    private By chooseDate;
     private By timeSelector;
     private By timeDropdown;
     private By datePicker;
@@ -27,8 +26,6 @@ public class BasicHairBookPage extends TopPart {
         this.driver=driver;
         this.numberOfPeoples = By.cssSelector("div.every_inputs_wrapper > div > div > div > div");
         this.numberOfPeoplesDropdown = By.cssSelector("div.every_inputs_wrapper > div > div > input");
-
-        this.chooseDate = By.cssSelector("div.calendar-date > table > tbody > tr:nth-child(6) > td:nth-child(5) > div");
 
         this.timeSelector = By.cssSelector("div.wrapper_choosing_time > div.choosing_date_time > div > div.wrapper_time_select > div");
         this.timeDropdown=By.cssSelector("div.choosing_date_time > div > div > input[type=text]");
@@ -46,7 +43,6 @@ public class BasicHairBookPage extends TopPart {
     public WebElement getTimeDropdown(){return  driver.findElement(timeDropdown);}
     public List<WebElement> getTime(){return driver.findElements(timeSelector);}
 
-    public WebElement getChooseDate(){return  driver.findElement(chooseDate);}
     public WebElement getDate(){return  driver.findElement(datePicker);}
 
     public WebElement getPromocodeField(){return  driver.findElement(promocodeField);}
