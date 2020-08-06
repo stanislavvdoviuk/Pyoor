@@ -7,8 +7,8 @@
          name="C:\Users\Stas\MovadexProjects\Pyoor\src\test\java\tests">
 
         <classes>
-            <class name="tests.ServicesTest.HairStylistTests.BookServiceTest"/>
-            <class name="tests.ServicesTest.HomeCleaningTest.HomeCleaningTest"/>
+<!--            <class name="tests.ServicesTest.HairStylistTests.BookServiceTest"/>-->
+<!--            <class name="tests.ServicesTest.HomeCleaningTest.HomeCleaningTest"/>-->
             <class name="tests.LogInTest"/>
         </classes>
     </test>
