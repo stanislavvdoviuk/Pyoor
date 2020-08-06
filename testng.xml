@@ -5,7 +5,7 @@
     <parameter name="url" value="http://dev.pyoor.co/"/>
     <test verbose="3"
          name="C:\Users\Stas\MovadexProjects\Pyoor\src\test\java\tests">
-
+        <parameter name="driverName" value="chrome" />
         <classes>
             <class name="tests.ServicesTest.HairStylistTests.BookServiceTest"/>
             <class name="tests.ServicesTest.HomeCleaningTest.HomeCleaningTest"/>

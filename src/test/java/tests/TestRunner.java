@@ -5,8 +5,8 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 public class TestRunner {
@@ -16,6 +16,10 @@ public class TestRunner {
     protected WebDriver launch() throws InterruptedException {
         WebDriver driver = getDriver();
         driver.get(url);
+        if (System.getenv("JENKINS_HOME") != null) {
+            System.setProperty("webdriver.gecko.driver", Paths.get("").toAbsolutePath().toString() + "\\DriverFile\\chromedriver_win32\\chromedriver.exe");
+        }
+
         driver.manage().window().setSize(new Dimension(1024, 768));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
