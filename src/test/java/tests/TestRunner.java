@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -16,11 +17,8 @@ public class TestRunner {
     protected WebDriver launch() throws InterruptedException {
         LOGGER.info( "TestRunner.launch() starts");
         WebDriver driver = getDriver();
-        LOGGER.info("TestRunner.launch() running get(" + url + ")");
         driver.get(url);
-        LOGGER.info("TestRunner.launch() running window().maximize()");
-        driver.manage().window().maximize();
-        LOGGER.info("TestRunner.launch() .timeouts().implicitlyWait()");
+        driver.manage().window().setSize(new Dimension(1280,720));
         driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 
         LOGGER.info("TestRunner.launch() finished");
@@ -31,7 +29,6 @@ public class TestRunner {
         if (driver == null) {
             LOGGER.info("TestRunner.getDriver() driver is null");
 
-            LOGGER.info("TestRunner.getDriver() chromedriver().setup() running");
             WebDriverManager.chromedriver().setup();
 
             LOGGER.info("TestRunner.getDriver() creating ChromeDriver()");
