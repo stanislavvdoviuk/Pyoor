@@ -7,17 +7,17 @@ import pages.NonChemicalCleaning.BasicCleaningPage;
 import pages.NonChemicalCleaning.NonChemicalCleaningPage;
 import org.testng.annotations.Test;
 import pages.NonChemicalCleaning.StandartCleaningPage;
+import tests.SuccessfullLoginTestRunner;
 import tests.TestRunner;
 import tests.Tools;
 import pages.*;
 
 import java.text.ParseException;
 
-public class HomeCleaningTest extends TestRunner {
+public class HomeCleaningTest extends SuccessfullLoginTestRunner {
     @Test(description = "")
     public void bookDeepClean() throws InterruptedException, ParseException {
-        Tools tools=new Tools();
-        tools.SuccessfulLogin("rovawen670@lege4h.com","Password12");
+
         HomePage homePage=new HomePage(getDriver());
         homePage
                 .clickBookService()
@@ -30,14 +30,12 @@ public class HomeCleaningTest extends TestRunner {
         cleaningPage.clickDeepCleanig();
         BasicCleaningPage clean=new BasicCleaningPage(getDriver());
 
-        clean.bookDeepCleaning(2,1, "2020-08-04",5);
-        Thread.sleep(7000);
+        clean.bookDeepCleaning(2,1, "2020-08-09",5);
+
     }
 
     @Test(description = "")
     public void bookStandartClean() throws InterruptedException, ParseException {
-        Tools tools=new Tools();
-        tools.SuccessfulLogin("rovawen670@lege4h.com","Password12");
         HomePage homePage=new HomePage(getDriver());
         homePage
                 .clickBookService()
@@ -53,14 +51,12 @@ public class HomeCleaningTest extends TestRunner {
                 ExtrasCleaningOptions.INSIDE_CABINETS.toString() +
                         ExtrasCleaningOptions.INSIDE_OF_WINDOWS.toString() +
                         ExtrasCleaningOptions.INSIDE_FRIDGE.toString();
-        standartCleaningPage.bookStandartCleaning(2,1, ServiceFrequency.ONE_TIME.toString(),extras,"2020-08-04",5);
-        Thread.sleep(7000);
+        standartCleaningPage.bookStandartCleaning(2,1, ServiceFrequency.ONE_TIME.toString(),extras,"2020-08-09",5);
     }
 
     @Test(description = "")
     public void checkingAlertMessage() throws InterruptedException, ParseException {
-        Tools tools=new Tools();
-        tools.SuccessfulLogin("rovawen670@lege4h.com","Password12");
+
         HomePage homePage=new HomePage(getDriver());
         homePage
                 .clickBookService()
@@ -74,7 +70,6 @@ public class HomeCleaningTest extends TestRunner {
         BasicCleaningPage clean=new BasicCleaningPage(getDriver());
         clean.bookWithWrongData(2,2);
         Assert.assertTrue(clean.getAlert().isDisplayed());
-        Thread.sleep(7000);
     }
 }
 

@@ -50,7 +50,7 @@ public class BasicCleaningPage extends TopPart {
         this.promocodeField = By.cssSelector(".promocode_wrapper #promo");
         this.commentField = By.cssSelector(".choosing_date_comment #comment");
         this.alert=By.cssSelector("div.order_vendor > div.wrapper_submit_btn > span");
-        this.nextButton = By.cssSelector(".wrapper_active_link_btn");
+        this.nextButton = By.cssSelector("div.wrapper_submit_btn > button");
     }
     public WebElement getNumberOfBedroomsDropdown(){return  driver.findElement(numberOfBedroomsDropdown);}
     public List<WebElement> getNumberOfBedrooms(){return  driver.findElements(numberOfBedrooms);}

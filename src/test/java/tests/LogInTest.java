@@ -4,12 +4,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 
-public class LogInTest extends TestRunner
+public class LogInTest extends SuccessfullLoginTestRunner
 {
     @Test(description = "")
     public void checkLogin() throws InterruptedException {
-        Tools tools=new Tools();
-        tools.SuccessfulLogin("rovawen670@lege4h.com","Password12");
+//        Tools tools=new Tools();
+//        tools.SuccessfulLogin("rovawen670@lege4h.com","Password12");
 
         ProfilePage user = new ProfilePage(getDriver());
         user.getUpdateInfo().click();

@@ -15,7 +15,7 @@ public class TopPart {
         this.driver=driver;
         this.loginButton = By.cssSelector("div.wrapper_profile_mobile > img");
         this.signInButton =By.cssSelector("div.sign_up_mobile");
-        this.bookServiceButton =By.cssSelector("#scroll_active > div.wrapper_navigation_section > div.navigation_wrapper > a:nth-child(2)");
+        this.bookServiceButton =By.cssSelector("#scroll_active > div.wrapper_navigation_section > div.navigation_wrapper > a:nth-of-type(1)");
     }
 
         public WebElement getLoginButton(){return  driver.findElement(loginButton);}
