@@ -22,7 +22,9 @@ public class TestRunner {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.setHeadless(true);
+            if (System.getenv("JENKINS_HOME") != null) {
+                chromeOptions.setHeadless(true);
+            }
             driver = new ChromeDriver(chromeOptions);
             launch();
             Thread.sleep(2000);
