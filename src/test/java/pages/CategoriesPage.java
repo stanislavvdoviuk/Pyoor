@@ -11,6 +11,7 @@ public class CategoriesPage extends TopPart{
     private By zipCodeField;
     private By typeField;
     private By continueButton;
+    private By errorVendor;
 
     public CategoriesPage(WebDriver driver) {
         super(driver);
@@ -18,8 +19,10 @@ public class CategoriesPage extends TopPart{
         this.zipCodeField = By.cssSelector("#zip_code_location");
         this.typeField =By.cssSelector("div.wrapper_inputs_form > div:nth-child(2) > div > input[type=text]");
         this.continueButton =By.cssSelector("div.wrapper_inputs_form > button");
+        this.errorVendor=By.cssSelector(".error_vendor");
     }
     public WebElement getZipCodeField(){return  driver.findElement(zipCodeField);}
+    public WebElement getErrorVendor(){return  driver.findElement(errorVendor);}
     public WebElement getTypeField(){
         try {
             return driver.findElement(typeField);
@@ -43,4 +46,5 @@ public class CategoriesPage extends TopPart{
         getZipCodeField().sendKeys(zipCode);
         getContinueButton().click();
     }
+
 }

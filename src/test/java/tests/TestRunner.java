@@ -15,7 +15,8 @@ public class TestRunner {
         WebDriver driver = getDriver();
         driver.get(url);
         driver.manage().window().setSize(new Dimension(1280,720));
-        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+       // driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 
         return driver;
     }
