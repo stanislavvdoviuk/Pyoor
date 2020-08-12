@@ -56,7 +56,6 @@ public class HomeCleaningTest extends SuccessfullLoginTestRunner {
 
     @Test(description = "")
     public void checkingAlertMessage() throws InterruptedException, ParseException {
-
         HomePage homePage=new HomePage(getDriver());
         homePage
                 .clickBookService()

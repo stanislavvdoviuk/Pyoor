@@ -10,23 +10,34 @@ public class TopPart {
     private By loginButton;
     private By signInButton;
     private By bookServiceButton;
+    private By rightBar;
 
     public TopPart(WebDriver driver)  {
         this.driver=driver;
         this.loginButton = By.cssSelector("div.wrapper_profile_mobile > img");
         this.signInButton =By.cssSelector("div.sign_up_mobile");
-        this.bookServiceButton =By.xpath("//*[@id=\"scroll_active\"]/div[3]/div[1]/a[1]");
-        //this.bookServiceButton =By.cssSelector("#scroll_active > div.wrapper_navigation_section > div.navigation_wrapper > a:nth-of-type(1)");
+//        this.bookServiceButton =By.xpath("//*[@id=\"scroll_active\"]/div[3]/div[1]/a[1]");
+        this.bookServiceButton =By.cssSelector(".navigation_wrapper > a[href*=\"services\"]");
+        this.rightBar=By.cssSelector("burger_menu_wrapper");
     }
 
         public WebElement getLoginButton(){return  driver.findElement(loginButton);}
+        public WebElement getRightBar(){return  driver.findElement(rightBar);}
         public void clickLoginButton(){ getLoginButton().click();}
 
         public WebElement getBookServiceButton(){return  driver.findElement(bookServiceButton);}
-        public void clickBookServiceButton(){ getBookServiceButton().click();}
-
-        public HomePage clickBookService()
+        public void clickBookServiceButton() throws InterruptedException {
+        if(getBookServiceButton().isDisplayed())
+        {   Thread.sleep(2000);
+            getBookServiceButton().click();}
+         else
         {
+        getRightBar().click();
+            getBookServiceButton().click();
+        }
+    }
+
+        public HomePage clickBookService() throws InterruptedException {
             clickBookServiceButton();
             return new HomePage(driver);
         }

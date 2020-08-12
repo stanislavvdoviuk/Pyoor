@@ -14,4 +14,7 @@ public class NoServiceAlertPage  extends  TopPart{
         this.titleWrapper = By.cssSelector("  .title_wrapper");
     }
     public WebElement getTitleWrapper(){return  driver.findElement(titleWrapper);}
+
+    public static class RightSideMenu {
+    }
 }
