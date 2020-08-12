@@ -55,7 +55,7 @@ public class BasicHairBookPage extends TopPart {
         getNumberOfPeoplesDropdown().click();
         getNumberOfPeoples().get(2).click();
 
-        tools.setDatePickerDate(LocalDate.parse("2020-10-18"));
+        tools.setDatePickerDate(LocalDate.parse("2020-11-18"));
 
         Thread.sleep(5000);
         getTimeDropdown().click();
