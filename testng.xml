@@ -10,6 +10,7 @@
             <class name="tests.ServicesTest.HairStylistTests.BookServiceTest"/>
             <class name="tests.ServicesTest.HomeCleaningTest.HomeCleaningTest"/>
             <class name="tests.LogInTest"/>
+            <class name="tests.ZipCodeTest"></class>
         </classes>
     </test>
 </suite>
