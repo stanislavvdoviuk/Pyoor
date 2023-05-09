@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <!-- - - - - - Test - - - - - -->
-        <org.testng.version>6.14.3</org.testng.version>
+        <org.testng.version>7.5.1</org.testng.version>
         <application.testng.name>testng.xml</application.testng.name>
         <!-- - - - - - Automation - - - - - -->
         <org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
